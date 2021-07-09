@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Rating from "../components/Rating";
-import data from "../../../amazon-backend/data";
+import data from "../data";
 
 export default function ProductScreen(props) {
   const product = data.products.find(
