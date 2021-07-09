@@ -1,7 +1,6 @@
 import React from "react";
-import BrowserRouter from "react-router-dom";
-import Product from "./components/Product";
-import data from "./data";
+import { BrowserRouter, Route } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
 
 function App() {
   return (
@@ -19,11 +18,7 @@ function App() {
           </div>
         </header>
         <main>
-          <div className="row center">
-            {data.products.map((product) => (
-              <Product key={product._id} product={product} />
-            ))}
-          </div>
+          <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All rights reserved</footer>
       </div>
