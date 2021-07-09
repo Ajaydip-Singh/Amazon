@@ -42,11 +42,24 @@ footer {
 /* Common */
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  transition: 300ms ease-in-out;
 }
 
 a:hover {
-    color: #ff8000;
+  color: #ff8000;
+}
+
+/* Header  */
+header a {
+  color: #fff;
+  padding: 1rem;
+}
+
+a.brand {
+  color: #fff;
+  font-size: 3rem;
+font-weight: 500;
 }
 
 .row {
@@ -54,4 +67,8 @@ a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.row.center {
+  justify-content: center;
 }
