@@ -40,7 +40,6 @@ footer {
 }
 
 /* Common */
-
 a {
   text-decoration: none;
   transition: 300ms ease-in-out;
@@ -71,4 +70,14 @@ font-weight: 500;
 
 .row.center {
   justify-content: center;
+}
+
+/* Image */
+img {
+    border-radius: 0.5rem;
+}
+
+img.medium {
+    max-width: 29rem;
+    width: 100%;
 }
