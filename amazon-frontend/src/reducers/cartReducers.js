@@ -26,11 +26,10 @@ export const cartReducer = (
         };
       }
     case CART_REMOVE_ITEM:
-      const itemId = action.payload;
       return {
         ...state,
         cartItems: state.cartItems.filter(
-          (cartItem) => cartItem.product !== itemId
+          (cartItem) => cartItem.product !== action.payload
         ),
       };
     default:
