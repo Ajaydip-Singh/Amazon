@@ -6,7 +6,7 @@ import userRouter from "./routers/userRouter.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect("mongodb://localhost/amazon", {
+mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/amazon", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
