@@ -5,6 +5,7 @@ import { detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import Rating from "../components/Rating";
+import { PRODUCT_DETAILS_SUCCESS } from "../constants/productConstants";
 
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
@@ -72,9 +73,11 @@ export default function ProductScreen(props) {
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <button className="primary block">Add to Cart</button>
-                  </li>
+                  {product.countInStock > 0 && (
+                    <li>
+                      <button className="primary block">Add to Cart</button>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
