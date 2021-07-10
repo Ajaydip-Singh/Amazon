@@ -6,7 +6,13 @@ import {
   productListReducer,
 } from "./reducers/productReducers";
 
-const initialState = {};
+const initialState = {
+  cart: {
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
+  },
+};
 const reducers = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
