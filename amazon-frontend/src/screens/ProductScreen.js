@@ -16,10 +16,6 @@ export default function ProductScreen(props) {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
 
-  if (!product) {
-    return <div>Product Not Found</div>;
-  }
-
   return (
     <div>
       {loading ? (
