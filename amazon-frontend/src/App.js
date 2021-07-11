@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
+import { signOut } from "./actions/userActions";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
@@ -12,6 +13,11 @@ function App() {
 
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
+
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signOut());
+  };
 
   return (
     <BrowserRouter>
@@ -30,7 +36,18 @@ function App() {
               )}
             </Link>
             {userInfo ? (
-              <Link to="#">{userInfo.name}</Link>
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             ) : (
               <Link to="/signin">Sign in</Link>
             )}
