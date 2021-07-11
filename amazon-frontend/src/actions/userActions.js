@@ -12,7 +12,7 @@ export const signIn = (email, password) => async (dispatch) => {
   });
 
   try {
-    const { data } = Axios.post("/api/users/signin", {
+    const { data } = await Axios.post("/api/users/signin", {
       email,
       password,
     });
