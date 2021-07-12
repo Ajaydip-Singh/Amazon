@@ -39,12 +39,6 @@ userRouter.post(
 userRouter.post(
   "/register",
   expressAsyncHandler(async (req, res) => {
-    const existsUser = User.findOne({ email: req.body.email });
-    if (existsUser) {
-      res.status(404).send({ message: "Email already in use" });
-      return;
-    }
-
     const user = new User({
       name: req.body.name,
       email: req.body.email,
