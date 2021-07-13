@@ -38,7 +38,7 @@ export default function RegisterScreen(props) {
     <div>
       <form onSubmit={submitHandler} className="form">
         <div>
-          <h1>Register</h1>
+          <h1>Create an account</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
