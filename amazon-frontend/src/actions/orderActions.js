@@ -28,6 +28,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
     dispatch({
       type: CART_EMPTY,
     });
+    localStorage.remove("cartItems");
   } catch (error) {
     dispatch({
       type: ORDER_CREATE_FAIL,
