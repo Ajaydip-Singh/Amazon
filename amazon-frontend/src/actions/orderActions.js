@@ -28,12 +28,12 @@ export const createOrder = (order) => async (dispatch, getState) => {
     dispatch({
       type: CART_EMPTY,
     });
-    localStorage.remove("cartItems");
+    localStorage.removeItem("cartItems");
   } catch (error) {
     dispatch({
       type: ORDER_CREATE_FAIL,
       payload:
-        error.response && error.response.message
+        error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
     });
