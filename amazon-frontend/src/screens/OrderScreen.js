@@ -37,6 +37,13 @@ export default function OrderScreen(props) {
                   {order.shippingAddress.postalCode},{" "}
                   {order.shippingAddress.country}
                 </p>
+                {order.isDelivered ? (
+                  <MessageBox variant="success">
+                    Delivered on {order.deliveredAt}
+                  </MessageBox>
+                ) : (
+                  <MessageBox variant="danger">Not Delivered</MessageBox>
+                )}
               </div>
             </li>
             <li>
@@ -45,6 +52,13 @@ export default function OrderScreen(props) {
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
                 </p>
+                {order.isPaid ? (
+                  <MessageBox variant="success">
+                    Pait at {order.paidAt}
+                  </MessageBox>
+                ) : (
+                  <MessageBox variant="danger">Not Paid</MessageBox>
+                )}
               </div>
             </li>
             <li>
