@@ -32,7 +32,6 @@ export default function PlaceOrderScreen(props) {
 
   useEffect(() => {
     if (success) {
-      console.log("should push to new page");
       props.history.push(`/order/${order._id}`);
       dispatch({
         type: ORDER_CREATE_RESET,
