@@ -6,6 +6,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { detailsOrder, payOrder } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { ORDER_PAY_RESET } from "../constants/orderConstants";
 
 export default function OrderScreen(props) {
   const [sdkReady, setSdkReady] = useState(false);
@@ -35,6 +36,7 @@ export default function OrderScreen(props) {
       document.body.appendChild(script);
     };
     if (!order || successPay || (order && order._id !== orderId)) {
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
