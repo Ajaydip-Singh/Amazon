@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signOut } from "./actions/userActions";
+import PrivateRoute from "./components/PrivateRoute";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
@@ -71,12 +72,31 @@ function App() {
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
-          <Route path="/shipping" component={ShippingAddressScreen}></Route>
-          <Route path="/payment" component={PaymentMethodScreen}></Route>
-          <Route path="/order" component={PlaceOrderScreen} exact></Route>
-          <Route path="/order/:id" component={OrderScreen}></Route>
-          <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-          <Route path="/profile" component={ProfileScreen}></Route>
+          <PrivateRoute
+            path="/shipping"
+            component={ShippingAddressScreen}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/payment"
+            component={PaymentMethodScreen}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/order"
+            component={PlaceOrderScreen}
+            exact
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/order/:id"
+            component={OrderScreen}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/orderhistory"
+            component={OrderHistoryScreen}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All rights reserved</footer>
