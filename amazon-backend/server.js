@@ -15,7 +15,7 @@ app.use(urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/amazon", {
+mongoose.connect(process.env.MONGO_DB_URL || "mongodb://localhost/amazon", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
