@@ -82,7 +82,7 @@ function App() {
                     <Link to="/productlist">Products</Link>
                   </li>
                   <li>
-                    <Link to="orderlist">Orders</Link>
+                    <Link to="/orderlist">Orders</Link>
                   </li>
                   <li>
                     <Link to="/userlist">Users</Link>
