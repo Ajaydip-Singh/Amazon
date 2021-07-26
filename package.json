@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "cd frontend && yarn install && yarn build",
     "start": "nodemon --watch amazon-backend --exec node --experimental-modules amazon-backend/server.js"
   },
   "repository": {
@@ -29,5 +30,10 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.10"
+  },
+  "engines": {
+    "node": "14.16.1",
+    "yarn": "1.22.10",
+    "npm": "7.18.1"
   }
 }
