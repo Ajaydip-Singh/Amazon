@@ -37,9 +37,14 @@ app.get("/api/config/paypal", (req, res) => {
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
-app.get("/", (req, res) => {
-  res.send("Server is ready");
+app.use(express.static(path.join(__dirname, "/amazon-frontend/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/amazon-frontend/build/index.html"));
 });
+
+// app.get("/", (req, res) => {
+//   res.send("Server is ready");
+// });
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
