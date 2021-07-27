@@ -374,3 +374,7 @@ form {
   border-right: none;
   margin-left: 1rem;
 }
+
+.active {
+  font-weight: bold;
+}
