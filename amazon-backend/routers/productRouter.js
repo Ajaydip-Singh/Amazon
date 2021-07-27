@@ -25,7 +25,12 @@ productRouter.get(
       ...categoryFilter,
       ...priceFilter,
     });
-    res.send(products);
+
+    if (products.length !== 0) {
+      res.send(products);
+    } else {
+      res.status(404).send({ message: "Products Not Found" });
+    }
   })
 );
 

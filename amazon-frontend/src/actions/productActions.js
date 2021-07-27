@@ -34,10 +34,13 @@ export const listProducts =
         type: PRODUCT_LIST_SUCCESS,
         payload: data,
       });
-    } catch (err) {
+    } catch (error) {
       dispatch({
         type: PRODUCT_LIST_FAIL,
-        payload: err.message,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
       });
     }
   };
@@ -52,10 +55,13 @@ export const listProductCategories = () => async (dispatch) => {
       type: PRODUCT_CATEGORY_LIST_SUCCESS,
       payload: data,
     });
-  } catch (err) {
+  } catch (error) {
     dispatch({
       type: PRODUCT_CATEGORY_LIST_FAIL,
-      payload: err.message,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };
