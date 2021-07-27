@@ -21,14 +21,14 @@ import {
 } from "../constants/productConstants";
 
 export const listProducts =
-  ({ name = "", category = "", min = 0, max = 0, rating = 0 }) =>
+  ({ name = "", category = "", min = 0, max = 0, rating = 0, order = "" }) =>
   async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_REQUEST,
     });
     try {
       const { data } = await Axios.get(
-        `/api/products?name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}`
+        `/api/products?name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`
       );
       dispatch({
         type: PRODUCT_LIST_SUCCESS,
