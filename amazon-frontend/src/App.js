@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
+import {
+  listCategoryProducts,
+  listProductCategories,
+} from "./actions/productActions";
 import { signOut } from "./actions/userActions";
 import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
@@ -34,6 +38,10 @@ function App() {
   const signoutHandler = () => {
     dispatch(signOut());
   };
+
+  useEffect(() => {
+    dispatch(listProductCategories());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
@@ -108,6 +116,16 @@ function App() {
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route
             path="/search/name/:name?"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <Route
+            path="/search/category/:category"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <Route
+            path="/search/category/:category/name/:name"
             component={SearchScreen}
             exact
           ></Route>
