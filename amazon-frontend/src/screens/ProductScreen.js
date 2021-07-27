@@ -34,7 +34,7 @@ export default function ProductScreen(props) {
             <div className="col-2">
               <img
                 className="large"
-                src={`.${product.image}`}
+                src={`${product.image}`}
                 alt={product.name}
               />
             </div>

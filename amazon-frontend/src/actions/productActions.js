@@ -17,23 +17,25 @@ import {
   PRODUCT_UPDATE_SUCCESS,
 } from "../constants/productConstants";
 
-export const listProducts = () => async (dispatch) => {
-  dispatch({
-    type: PRODUCT_LIST_REQUEST,
-  });
-  try {
-    const { data } = await Axios.get("/api/products");
+export const listProducts =
+  ({ name = "" }) =>
+  async (dispatch) => {
     dispatch({
-      type: PRODUCT_LIST_SUCCESS,
-      payload: data,
+      type: PRODUCT_LIST_REQUEST,
     });
-  } catch (err) {
-    dispatch({
-      type: PRODUCT_LIST_FAIL,
-      payload: err.message,
-    });
-  }
-};
+    try {
+      const { data } = await Axios.get(`/api/products?name=${name}`);
+      dispatch({
+        type: PRODUCT_LIST_SUCCESS,
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: PRODUCT_LIST_FAIL,
+        payload: err.message,
+      });
+    }
+  };
 
 export const detailsProduct = (productId) => async (dispatch) => {
   dispatch({

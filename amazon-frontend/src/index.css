@@ -155,6 +155,10 @@ a.brand {
   flex: 2 1 50rem;
 }
 
+.col-3 {
+  flex: 32 1 75rem;
+}
+
 .min-30 {
   min-width: 30rem;
 }
@@ -312,4 +316,17 @@ form {
 
 .table button {
   margin: 0 0.2rem;
+}
+
+/* Search */
+.search button {
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-right: none;
+  margin-right: 1rem;
+}
+
+.search input {
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-right: none;
+  margin-left: 1rem;
 }
