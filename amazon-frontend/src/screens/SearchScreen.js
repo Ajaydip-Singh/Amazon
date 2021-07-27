@@ -72,6 +72,14 @@ export default function SearchScreen(props) {
               <MessageBox variant="danger">{errorCategories}</MessageBox>
             ) : (
               <ul>
+                <li>
+                  <Link
+                    className={"all" === category ? "active" : ""}
+                    to={getFilterUrl({ category: "all" })}
+                  >
+                    Any
+                  </Link>
+                </li>
                 {categories.map((c) => (
                   <li key={c}>
                     <Link
